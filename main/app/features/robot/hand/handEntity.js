@@ -2,25 +2,18 @@
 
 angular.module('robot.manager')
 .factory('Hand', [function(){
-    function Hand(){
+    function Hand(red, green, blue){
         this.thumb = 180;
         this.ringfinger = 180;
         this.auricular = 180;
         this.index = 180;
         this.major = 180;
+        this.rColor = red ? red : 0;
+        this.gColor = green ? green : 0;
+        this.bColor = blue ? blue : 0;
     }
-    /*
-    function Hand(lastHand){
-        if(lastHand){
-            this.thumb = lastHand.thumb;
-            this.ringfinger = lastHand.ringfinger;
-            this.auricular = lastHand.auricular;
-            this.index = lastHand.index;
-            this.major = lastHand.major;
-        }
-    }*/
 
-    return function(){
-        return new Hand();
+    return function(red,green,blue){
+        return new Hand(red,green,blue);
     };
 }]);

@@ -3,7 +3,7 @@
 <body ng-controller="HandCtrl">
 
     <div class="col-xs-2 jumbotron">
-        <div robot-hand editable="true" hand-model="currentStep.hand" scale="0.4">
+        <div robot-hand editable="true" hand-model="currentStep.hand" scale="0.7">
 
         </div>
         <button ng-click="robotPlayerService.playHand(currentStep.hand)">
@@ -11,13 +11,13 @@
         </button>
     </div>
     <div class="col-xs-2 jumbotron">
-        <p style="color:blue;font-size:1.3em; font-weight:bold;">Main courante</p>
+        <p style="color:darkgreen;font-size:1.3em; font-weight:bold;">Main courante</p>
         <ul>
-            <li>thumb : {{currentStep.hand.thumb}}</li>
-            <li>ringfinger : {{currentStep.hand.ringfinger}}</li>
-            <li>auricular : {{currentStep.hand.auricular}}</li>
-            <li>index : {{currentStep.hand.index}}</li>
-            <li>major : {{currentStep.hand.major}}</li>
+            <li><span style="font-weight: bold;color:forestgreen;text-decoration: underline">thumb</span> : <span>{{currentStep.hand.thumb}}</span></li>
+            <li><span style="font-weight: bold;color:forestgreen;text-decoration: underline">ringfinger</span> : <span>{{currentStep.hand.ringfinger}}</span></li>
+            <li><span style="font-weight: bold;color:forestgreen;text-decoration: underline">auricular</span> : <span>{{currentStep.hand.auricular}}</span></li>
+            <li><span style="font-weight: bold;color:forestgreen;text-decoration: underline">index</span> : <span>{{currentStep.hand.index}}</span></li>
+            <li><span style="font-weight: bold;color:forestgreen;text-decoration: underline">major</span> : <span>{{currentStep.hand.major}}</span></li>
         </ul>
         <button ng-click="addCurrentStep(currentStep)">
             <i class="fa fa-forward" aria-hidden="true">Ajouter à la playlist</i>
@@ -25,9 +25,15 @@
         <br/>
     </div><br/>
     <div class="col-lg-6 jumbotron">
-        <p style="font-weight:bold; color:green;">
-            <button ng-if="application.playlist.length > 0" ng-click="startPlaylist()">
+        <p style="font-weight:bold;">
+            <button style="background-color:rgb(183,255,176);color:green;" ng-if="application.playlist.length > 0" ng-click="startPlaylist()">
                 <i class="fa fa-play-circle" aria-hidden="true">&nbsp;Start the playlist</i>
+            </button>
+            <button style="background-color:rgb(255,208,200);color:red;" ng-if="application.playlist.length > 0" ng-click="cleanPlaylist()">
+                <i class="fa fa-bolt" aria-hidden="true">&nbsp;Vider la playlist</i>
+            </button>
+            <button style="background-color:rgb(242,242,190);color:black;" ng-if="application.playlist.length > 0" ng-click="applicationService.save(application)">
+                <i class="fa fa-floppy-o" aria-hidden="true">&nbsp;Enregistrer la playlist</i>
             </button>
             <i ng-if="application.playlist.length == 0" class="fa fa-comment-o" aria-hidden="true">&nbsp;The playlist is empty</i>
         </p>

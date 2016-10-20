@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 <div style="display:inline-block; float:left;">
-    <p style="font-weight:bold; color:rgb(12,89, 45);">Index : {{step.stepIndex}}</p>
-    Position de la main
-    <ul>
-        <li>Thumb ({{step.hand.thumb}})</li>
-        <li>Ringfinger ({{step.hand.ringfinger}})</li>
-        <li>Auricular ({{step.hand.auricular}})</li>
-        <li>Index ({{step.hand.index}})</li>
-        <li>Major ({{step.hand.major}})</li>
-    </ul>
+    <p style="font-weight:bold; color:rgb(12,89, 45);">Main n°{{step.stepIndex}}</p>
+    <div robot-hand editable="false" hand-model="step.hand" scale="0.4">
+
+    </div>
 </div>
