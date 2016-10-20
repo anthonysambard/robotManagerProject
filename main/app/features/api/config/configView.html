@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<h1>Configuration du robot</h1>
+<body ng-controller="ApiConfigCtrl">
+    <input it-input class="form-control floating-label" required="" ng-minlength="5"  ng-maxlength="100"
+       type="text" it-label="URL" name="url" ng-model="application.API.URL">
+    <br/>
+    <button class="btn btn-primary" ng-click="applicationService.save(application)">
+        <i class="fa fa-floppy-o" aria-hidden="true"></i>
+        Enregistrer la configuration
+    </button>
+</body>

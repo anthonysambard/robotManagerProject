@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<h1>Hand content</h1>
+<body ng-controller="HandCtrl">
+
+    <div class="col-xs-2 jumbotron">
+        <div robot-hand editable="true" hand-model="currentStep.hand" scale="0.4">
+
+        </div>
+        <button ng-click="robotPlayerService.playHand(currentStep.hand)">
+            <i class="fa fa-play" aria-hidden="true"></i>Play the current hand
+        </button>
+    </div>
+    <div class="col-xs-2 jumbotron">
+        <p style="color:blue;font-size:1.3em; font-weight:bold;">Main courante</p>
+        <ul>
+            <li>thumb : {{currentStep.hand.thumb}}</li>
+            <li>ringfinger : {{currentStep.hand.ringfinger}}</li>
+            <li>auricular : {{currentStep.hand.auricular}}</li>
+            <li>index : {{currentStep.hand.index}}</li>
+            <li>major : {{currentStep.hand.major}}</li>
+        </ul>
+        <button ng-click="addCurrentStep(currentStep)">
+            <i class="fa fa-forward" aria-hidden="true">Ajouter à la playlist</i>
+        </button>
+        <br/>
+    </div><br/>
+    <div class="col-lg-6 jumbotron">
+        <p style="font-weight:bold; color:green;">
+            <button ng-if="application.playlist.length > 0" ng-click="startPlaylist()">
+                <i class="fa fa-play-circle" aria-hidden="true">&nbsp;Start the playlist</i>
+            </button>
+            <i ng-if="application.playlist.length == 0" class="fa fa-comment-o" aria-hidden="true">&nbsp;The playlist is empty</i>
+        </p>
+
+        <div style="border-color: rgb(86,240,120); border-width: 2px;border-style: solid;">
+            <div ng-repeat="myStep in application.playlist">
+                <step-ui step="myStep"></step-ui>
+
+            </div>
+        </div>
+    </div>
+</body>
